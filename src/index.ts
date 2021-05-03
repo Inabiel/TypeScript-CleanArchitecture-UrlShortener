@@ -11,7 +11,7 @@ app.use(
     stream: fs.createWriteStream("./access.log", { flags: "a" }),
   })
 );
-app.use(morgan("combined");
+app.use(morgan("combined"));
 
 const port = process.env.PORT || 8080;
 
