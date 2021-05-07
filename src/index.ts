@@ -1,17 +1,23 @@
-require("dotenv").config();
+import * as dotenv from "dotenv";
+import Cors from "cors";
 import Express, { Request, Response } from "express";
-import morgan from "morgan";
-import fs from "fs";
+import Fs from "fs";
+import Helmet from "helmet";
+import Morgan from "morgan";
+
+dotenv.config();
 
 const app = Express();
+app.use(Helmet());
+app.use(Cors());
 app.use(Express.json());
 app.use(Express.urlencoded({ extended: true }));
 app.use(
-  morgan("combined", {
-    stream: fs.createWriteStream("./access.log", { flags: "a" }),
+  Morgan("combined", {
+    stream: Fs.createWriteStream("./access.log", { flags: "a" }),
   })
 );
-app.use(morgan("combined"));
+app.use(Morgan("combined"));
 
 const port = process.env.PORT || 8080;
 
