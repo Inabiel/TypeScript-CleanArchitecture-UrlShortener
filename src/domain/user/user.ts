@@ -7,9 +7,9 @@ export class User implements Iuser {
   password: string;
   roleId: number;
 
-  constructor(props: {
-    id: string;
+  constructor(props?: {
     name: string;
+    id: string;
     email: string;
     password: string;
     roleId: number;

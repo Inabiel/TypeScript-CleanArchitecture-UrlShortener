@@ -7,7 +7,7 @@ export class Url implements Iurl {
   updatedAt: Date;
   userId?: string | null;
 
-  constructor(props: {
+  constructor(props?: {
     Hash: string;
     originalUrl: string;
     createdAt: Date;
